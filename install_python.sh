@@ -46,7 +46,12 @@ fi
 
 # 创建快捷方式；
 ln -s /usr/local/python${python_version: 0:3}/bin/python${python_version: 0:3} /usr/bin/python3
-ln -s /usr/local/python${python_version: 0:3}/bin/pip3 /usr/bin/pip3
+if [ -f /usr/local/python${python_version: 0:3}/bin/pip3 ]; then
+    ln -s /usr/local/python${python_version: 0:3}/bin/pip3 /usr/bin/pip3
+else
+    echo "当前安装的Python${python_version}版本未包含pip3，无法设定软链接；"
+    # 如果pip3不存在，则不指向；
+fi
 
 # 安装完毕后查看当前版本；
 echo "安装完毕，当前Python版本为："
