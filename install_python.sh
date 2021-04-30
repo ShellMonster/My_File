@@ -28,6 +28,7 @@ make & make install
 
 # 删除原有Python快捷方式(有就删掉)
 rm -rf /usr/bin/python3
+rm -rf /usr/bin/pip3
 
 # 创建快捷方式；
 ln -s /usr/local/python3.8/bin/python3.8 /usr/bin/python3
