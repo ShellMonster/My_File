@@ -9,12 +9,12 @@
 OS="$(uname)"
 if [[ "$OS" == "Linux" ]]; then
   yum install gcc zlib-devel openssl-devel -y
+  # 切换到根目录下载安装；
+  cd
 elif [[ "$OS" != "Darwin" ]]; then
-  : # 是MacOS就不用担心；
+  # 是MacOS就不用担心，切到桌面下载安装；
+  cd ~/Desktop
 fi
-
-# 切换到首页
-cd  
 
 # 默认下载3.8.0安装包；
 python_version="3.8.0"
