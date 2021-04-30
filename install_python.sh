@@ -27,8 +27,14 @@ cd Python-3.8.0
 make & make install
 
 # 删除原有Python快捷方式(有就删掉)
-rm -rf /usr/bin/python3
-rm -rf /usr/bin/pip3
+if [ -L /usr/bin/python3 ]; then
+    echo "当前已存在python3软链接，将自动替换为最新"
+    rm -rf /usr/bin/python3
+fi
+if [ -L /usr/bin/pip3 ]; then
+    echo "当前已存在pip3软链接，将自动替换为最新"
+    rm -rf /usr/bin/pip3
+fi
 
 # 创建快捷方式；
 ln -s /usr/local/python3.8/bin/python3.8 /usr/bin/python3
