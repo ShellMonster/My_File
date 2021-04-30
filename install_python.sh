@@ -1,5 +1,5 @@
 ###### 安装前检查 ######
-# yum install gcc -y   zlib-devel openssl-devel
+# yum install gcc zlib-devel openssl-devel -y
 ###### 安装前检查 ######
 # 快捷执行命令(两条任选其一)：
 # curl -o- -L https://raw.githubusercontent.com/ShellMonster/My_File/main/install_python.sh | bash -s
@@ -8,7 +8,7 @@
 # 判断是Linux还是Mac os
 OS="$(uname)"
 if [[ "$OS" == "Linux" ]]; then
-  yum install gcc -y   zlib-devel openssl-devel
+  yum install gcc zlib-devel openssl-devel -y
 elif [[ "$OS" != "Darwin" ]]; then
   : # 是MacOS就不用担心；
 fi
