@@ -10,6 +10,8 @@
 cd  
 
 # 下载3.8.0安装包；
+# echo "请在下方输入希望安装的Python版本(例如3.8.0，默认3.8.0)："
+# read python_version
 wget --no-check-certificate http://npm.taobao.org/mirrors/python/3.8.0/Python-3.8.0.tgz
 
 # 解压缩3.8.0；
