@@ -30,9 +30,12 @@ ln -s /usr/local/python3.8/bin/python3.8 /usr/bin/python3
 ln -s /usr/local/python3.8/bin/pip3 /usr/bin/pip3
 
 # 安装完毕后查看当前版本；
+echo "安装完毕，当前Python版本为："
 python -V
 
 # 删除下载的文件和目录；
 cd ..
 rm -rf Python-3.8.0.tgz
 rm -rf Python-3.8.0
+
+
