@@ -5,6 +5,13 @@
 # curl -o- -L https://raw.githubusercontent.com/ShellMonster/My_File/main/install_python.sh | bash -s
 # sh -c "$(curl -sSL https://raw.githubusercontent.com/ShellMonster/My_File/main/install_python.sh)"
 
+# 判断是Linux还是Mac os
+OS="$(uname)"
+if [[ "$OS" == "Linux" ]]; then
+  yum install gcc -y   zlib-devel openssl-devel
+elif [[ "$OS" != "Darwin" ]]; then
+  : # 是MacOS就不用担心；
+fi
 
 # 切换到首页
 cd  
