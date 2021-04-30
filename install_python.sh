@@ -16,19 +16,20 @@ fi
 # 切换到首页
 cd  
 
-# 下载3.8.0安装包；
+# 默认下载3.8.0安装包；
+python_version="3.8.0"
 # echo "请在下方输入希望安装的Python版本(例如3.8.0，默认3.8.0)："
 # read python_version
-wget --no-check-certificate http://npm.taobao.org/mirrors/python/3.8.0/Python-3.8.0.tgz
+wget --no-check-certificate http://npm.taobao.org/mirrors/python/${python_version}/Python-${python_version}.tgz
 
-# 解压缩3.8.0；
-tar -zxvf Python-3.8.0.tgz
+# 解压缩；
+tar -zxvf Python-${python_version}.tgz
 
 # 进入解压后的目录；
-cd Python-3.8.0
+cd Python-${python_version}
 
 # 开始编译版本到对应Python目录；
-./configure --with-ssl --prefix=/usr/local/python3.8
+./configure --with-ssl --prefix=/usr/local/python${python_version: 0:3}
 
 # 安装Python
 make & make install
@@ -44,8 +45,8 @@ if [ -L /usr/bin/pip3 ]; then
 fi
 
 # 创建快捷方式；
-ln -s /usr/local/python3.8/bin/python3.8 /usr/bin/python3
-ln -s /usr/local/python3.8/bin/pip3 /usr/bin/pip3
+ln -s /usr/local/python${python_version: 0:3}/bin/python${python_version: 0:3} /usr/bin/python3
+ln -s /usr/local/python${python_version: 0:3}/bin/pip3 /usr/bin/pip3
 
 # 安装完毕后查看当前版本；
 echo "安装完毕，当前Python版本为："
@@ -53,5 +54,5 @@ python -V
 
 # 删除下载的文件和目录；
 cd ..
-rm -rf Python-3.8.0.tgz
-rm -rf Python-3.8.0
+rm -rf Python-${python_version: 0:3}.tgz
+rm -rf Python-${python_version: 0:3}
