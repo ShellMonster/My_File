@@ -17,8 +17,8 @@ elif [[ "$OS" != "Darwin" ]]; then
 fi
 
 # 默认下载3.8.0安装包；
-python_version="3.8.0"
-# echo "请在下方输入希望安装的Python版本(例如3.8.0，默认3.8.0)："
+python_version="3.9.5"
+# echo "请在下方输入希望安装的Python版本(例如3.9.5，默认3.9.5)："
 # read python_version
 wget --no-check-certificate http://npm.taobao.org/mirrors/python/${python_version}/Python-${python_version}.tgz
 
