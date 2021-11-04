@@ -29,7 +29,8 @@ tar -zxvf Python-${python_version}.tgz
 cd Python-${python_version}
 
 # 开始编译版本到对应Python目录；
-./configure --with-ssl --prefix=/usr/local/python${python_version: 0:3}
+mkdir /usr/local/python${python_version}
+./configure --with-ssl --prefix=/usr/local/python${python_version}
 
 # 安装Python
 make & make install
