@@ -38,23 +38,31 @@ mkdir /usr/local/python${python_version}
 make & make install
 
 # 删除原有Python快捷方式(有就删掉)
-if [ -L /usr/bin/python3 ]; then
-    echo "当前已存在python3软链接，将自动替换为最新"
-    rm -rf /usr/bin/python3
-fi
-if [ -L /usr/bin/pip3 ]; then
-    echo "当前已存在pip3软链接，将自动替换为最新"
-    rm -rf /usr/bin/pip3
-fi
+# if [ -L /usr/bin/python3 ]; then
+#     echo "当前已存在python3软链接，将自动替换为最新"
+#     rm -rf /usr/bin/python3
+# fi
+# if [ -L /usr/bin/pip3 ]; then
+#     echo "当前已存在pip3软链接，将自动替换为最新"
+#     rm -rf /usr/bin/pip3
+# fi
 
-# 创建快捷方式；
-ln -s /usr/local/python${python_version: 0:3}/bin/python${python_version: 0:3} /usr/bin/python3
-if [ -f /usr/local/python${python_version: 0:3}/bin/pip3 ]; then
-    ln -s /usr/local/python${python_version: 0:3}/bin/pip3 /usr/bin/pip3
-else
-    echo "当前安装的Python${python_version}版本未包含pip3，无法设定软链接；"
-    # 如果pip3不存在，则不指向；
-fi
+# 创建python3快捷链接：
+rm -rf /usr/bin/python3
+ln -s /usr/local/python${python_version}/bin/python{python_version: 0:3} /usr/bin/python3
+
+# 创建pip3快捷链接；
+rm -rf /usr/bin/pip3
+ln -s /usr/local/python${python_version}/bin/pip3 /usr/bin/pip3
+
+# # 创建快捷方式；
+# ln -s /usr/local/python${python_version: 0:3}/bin/python${python_version: 0:3} /usr/bin/python3
+# if [ -f /usr/local/python${python_version: 0:3}/bin/pip3 ]; then
+#     ln -s /usr/local/python${python_version: 0:3}/bin/pip3 /usr/bin/pip3
+# else
+#     echo "当前安装的Python${python_version}版本未包含pip3，无法设定软链接；"
+#     # 如果pip3不存在，则不指向；
+# fi
 
 # 安装完毕后查看当前版本；
 echo "安装完毕，当前Python版本为："
@@ -62,5 +70,5 @@ python -V
 
 # 删除下载的文件和目录；
 cd ..
-rm -rf Python-${python_version: 0:3}.tgz
-rm -rf Python-${python_version: 0:3}
+rm -rf Python-${python_version}.tgz
+rm -rf Python-${python_version}
