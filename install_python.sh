@@ -5,12 +5,12 @@
 # curl -o- -L https://raw.githubusercontent.com/ShellMonster/My_File/main/install_python.sh | bash -s
 # sh -c "$(curl -sSL https://raw.githubusercontent.com/ShellMonster/My_File/main/install_python.sh)"
 
-yum install gcc zlib-devel openssl-devel libffi-devel -y
+# yum install gcc zlib-devel openssl-devel libffi-devel bzip2-devel -y
 
 # 判断是Linux还是Mac os
 OS="$(uname)"
 if [[ "$OS" == "Linux" ]]; then
-  yum install gcc zlib-devel openssl-devel -y
+  yum install gcc zlib-devel openssl-devel libffi-devel bzip2-devel -y
   # 切换到根目录下载安装；
   cd
 elif [[ "$OS" != "Darwin" ]]; then
